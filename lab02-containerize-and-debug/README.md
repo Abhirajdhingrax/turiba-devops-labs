@@ -15,7 +15,7 @@ Theory: Session 2 slides "Container images & the Linux survival kit" (BATIS) · 
 ```mermaid
 flowchart LR
   P0["0 · Before class<br/>at home"] --> P1["1 · Images and layers<br/>~25 min"] --> P2["2 · Containerize the API<br/>~50 min"] --> P3["3 · Linux drills<br/>~20 min"]
-  P3 --> P4["4 · Broken containers<br/>~25 min"] --> P5(["5 · Submit on Evaluentis<br/>then you can leave"])
+  P3 --> P4["4 · Broken containers<br/>~40 min"] --> P5(["5 · Submit on Evaluentis<br/>then you can leave"])
 ```
 
 ---
@@ -30,7 +30,7 @@ Theory comes first, as a fast 90-minute tour. From 18:15 you work through this g
 | 1 · Images and layers | 25 min | 6–14b |
 | 2 · Containerize the course API | 50 min | 15–24 |
 | 3 · Linux drills | 20 min | 25–36 |
-| 4 · Fix the broken containers | 25 min | 36, 38 |
+| 4 · Fix the broken containers | 40 min | 36, 38 |
 | 5 · Write it up and submit | 10 min | — |
 
 - Do the parts **in order**. Part 2 needs the digest from Part 1.
@@ -480,7 +480,7 @@ Port 8081 is used here because your API may still run on 8080. If you already cr
 
 ---
 
-## Part 4 · Fix the broken containers (about 25 min, slides 36, 38)
+## Part 4 · Fix the broken containers (about 40 min, slides 36, 38)
 
 Seven images, seven faults: `ghcr.io/mleitass/lab2-broken:1` to `:7`. **Rules:** use only `docker ps`, `logs`, `inspect`, `exec`, `run --entrypoint` and the Linux commands from today. Don't look for the Dockerfiles.
 
@@ -504,7 +504,7 @@ Exit code 127 means "command not found". The logs say which command: `nodemon`. 
 
 ### 4.2 Now you: images 2–7
 
-Solve **at least three** of them. Start with the hint in the right column.
+Solve **at least five** of them. Start with the hint in the right column.
 
 | # | What you see | Start with |
 |--:|--------------|------------|
@@ -519,7 +519,7 @@ Clean up after each one: `docker rm -f <c>`.
 
 📝 **README:** for each image you solved, three lines: **symptom → cause → fix** (the Dockerfile or code change you would make).
 
-✅ **Checkpoint Part 4:** at least three of images 2–7 written up.
+✅ **Checkpoint Part 4:** at least five of images 2–7 written up.
 
 ---
 
@@ -606,7 +606,7 @@ If `git push` fails, upload the files on GitHub instead (*Add file → Upload fi
 | ☐ | `docker pull ghcr.io/<you>/course-api:lab2` works without logging in, on amd64 and arm64 |
 | ☐ | `docker run -p 8080:5000 …` → `/healthz` returns 200 and the container becomes `(healthy)` |
 | ☐ | `lab2` is at most 50 % of `naive` (size table in the README) |
-| ☐ | README: Parts 1–3 filled in, the four answers, and Part 4 for at least three of images 2–7 |
+| ☐ | README: Parts 1–3 filled in, the four answers, and Part 4 for at least five of images 2–7 |
 | ☐ | No password or token anywhere in the repository |
 
 ---
