@@ -42,7 +42,7 @@ The course overview in Session 1 described a bigger capstone. This version is bu
 | Done | Labs 1–6 | Dockerfile, Compose, protected `main`, CI with a smoke test, a release from a tag |
 | Tue 10 Nov | Mission 7 due | Kubernetes manifests |
 | Wed 11 Nov | S8, Mission 8 (due Sat 14 Nov) | PostgreSQL with storage, ConfigMap and Secret, probes |
-| Mon 16 Nov | Test 2, then Mission 9 (due Tue 17 Nov) | The Helm chart |
+| Mon 16 Nov | Test 2, then Mission 9 (due Wed 18 Nov, 20:00) | The Helm chart |
 | Wed 18 Nov | Self-study: Mission 10 (due Sun 22 Nov) | OpenTofu *(Target)* |
 | Mon 23 Nov | Test 3, then Mission 11 (due Tue 24 Nov) | A Grafana dashboard *(Target)* |
 | Wed 25 Nov | **Capstone workshop:** questions, a check that your fork fits together, work time | — |

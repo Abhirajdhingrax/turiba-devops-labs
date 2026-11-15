@@ -14,6 +14,7 @@ Lab guides for **Software Development and IT Operations (DevOps)**, course ELE10
 | 6 | S6 · Continuous Integration II | [Test what you ship, ship a release](lab06-test-and-release/README.md) | The URL of your fork on Evaluentis: a smoke test in your image job, a red-then-green break-fix PR, release v0.2.0 with its image, and lab6/README.md. Due Tue 3 Nov, 22:00 |
 | 7 | S7 · Kubernetes I | [Run it on a cluster](lab07-run-it-on-a-cluster/README.md) | The URL of your fork on Evaluentis: k8s/ with a Namespace, a Deployment and a Service that one apply turns into a working app, a merged break-fix PR, and lab7/README.md. Due Tue 10 Nov, 22:00 |
 | 8 | S8 · Kubernetes II (self-study) | [Run the whole app](lab08-run-the-whole-app/README.md) | The URL of your fork on Evaluentis: k8s/ with PostgreSQL on a PVC, a ConfigMap, probes and resources that one apply (plus the Secret) turns into a working app whose data survives a new database Pod, a merged break-fix PR, and lab8/README.md. Due Sat 14 Nov, 22:00 |
+| 9 | S9 · Packaging with Helm (self-study) | [Package it with Helm](lab09-package-it/README.md) | The URL of your fork on Evaluentis: `charts/course-app/` that one `helm install` (plus the Namespace and the Secret) turns into a working app, an upgrade and a rollback, a merged break-fix PR, and lab9/README.md. Due Wed 18 Nov, 20:00 |
 
 The next lab guide is published here before its session.
 
@@ -134,6 +135,23 @@ kind delete cluster --name s7-check
 ## Before Lab 8
 
 Nothing new to install: Lab 8 uses kind and kubectl from Lab 7. Read the Session 8 slides on BATIS first. The first database Pod downloads the image `postgres:17-alpine`, which takes a minute or two. Your starting point is your Lab 7 `k8s/`; if it doesn't work, the Lab 8 guide has fallback files.
+
+## Before Lab 9
+
+Lab 9 adds **Helm 4**. Install it in the same terminal as kind and kubectl (Windows: the **Ubuntu (WSL)** terminal):
+
+```bash
+curl -fsSLo helm.tar.gz https://get.helm.sh/helm-v4.3.2-linux-amd64.tar.gz
+tar -xzf helm.tar.gz linux-amd64/helm
+sudo install -m 0755 linux-amd64/helm /usr/local/bin/helm && rm -rf helm.tar.gz linux-amd64
+helm version                        # version.BuildInfo{Version:"v4.3.2", …}
+which helm                          # /usr/local/bin/helm
+```
+
+macOS: `brew install helm`.
+
+- `which helm` shows a path under `/mnt/c/…`? That's Rancher Desktop's copy. Open a new terminal; `/usr/local/bin/helm` should come first.
+- Your starting point is your Lab 8 `k8s/`. If it doesn't work, the Lab 9 guide has fallback files.
 
 ## Stuck?
 
