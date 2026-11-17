@@ -120,7 +120,7 @@ Put your write-up in **`capstone/README.md`**, not in the root `README.md`. The 
 4. **Catching up with reference files is allowed.** If you use the course's reference or fallback files, say so in `## What is where`. At the exam, you must be able to explain every line of them.
 5. **Don't change the course folders** (`lab0N-…/`) or the root `README.md`. **Don't delete** your `labN/` write-ups or your earlier tags, because the earlier mission checks are run again.
 6. **If a secret gets into Git, rotate it first** (make a new password or token and stop using the old one). Then remove it from the repository. Once something is pushed to a public repository, treat it as already stolen.
-7. **Delete your clusters when you stop for the day** (`kind delete cluster --name …`). Your work is safe in Git.
+7. **Delete your clusters when you stop for the day:** `tofu destroy` in `infra/` once your cluster comes from OpenTofu (Mission 10 on); `kind delete cluster --name …` only for clusters you made with `kind`. Your work is safe in Git.
 
 ---
 
