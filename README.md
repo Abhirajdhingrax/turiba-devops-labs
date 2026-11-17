@@ -15,6 +15,7 @@ Lab guides for **Software Development and IT Operations (DevOps)**, course ELE10
 | 7 | S7 · Kubernetes I | [Run it on a cluster](lab07-run-it-on-a-cluster/README.md) | The URL of your fork on Evaluentis: k8s/ with a Namespace, a Deployment and a Service that one apply turns into a working app, a merged break-fix PR, and lab7/README.md. Due Tue 10 Nov, 22:00 |
 | 8 | S8 · Kubernetes II (self-study) | [Run the whole app](lab08-run-the-whole-app/README.md) | The URL of your fork on Evaluentis: k8s/ with PostgreSQL on a PVC, a ConfigMap, probes and resources that one apply (plus the Secret) turns into a working app whose data survives a new database Pod, a merged break-fix PR, and lab8/README.md. Due Sat 14 Nov, 22:00 |
 | 9 | S9 · Packaging with Helm (self-study) | [Package it with Helm](lab09-package-it/README.md) | The URL of your fork on Evaluentis: `charts/course-app/` that one `helm install` (plus the Namespace and the Secret) turns into a working app, an upgrade and a rollback, a merged break-fix PR, and lab9/README.md. Due Wed 18 Nov, 20:00 |
+| 10 | S10 · Infrastructure as code (self-study) | [Build it from code](lab10-build-it/README.md) | The URL of your fork on Evaluentis: `infra/` with OpenTofu code that one `tofu apply` turns into the kind cluster with your chart running, a rebuild from zero, a merged break-fix PR, and lab10/README.md. Due Sun 22 Nov, 22:00 |
 
 The next lab guide is published here before its session.
 
@@ -152,6 +153,27 @@ macOS: `brew install helm`.
 
 - `which helm` shows a path under `/mnt/c/…`? That's Rancher Desktop's copy. Open a new terminal; `/usr/local/bin/helm` should come first.
 - Your starting point is your Lab 8 `k8s/`. If it doesn't work, the Lab 9 guide has fallback files.
+
+## Before Lab 10
+
+Lab 10 adds **OpenTofu**. Install it in the same terminal as kind, kubectl and Helm (Windows: the **Ubuntu (WSL)** terminal):
+
+```bash
+V=1.13.9
+curl -fsSLO https://github.com/opentofu/opentofu/releases/download/v$V/tofu_${V}_linux_amd64.tar.gz
+curl -fsSLO https://github.com/opentofu/opentofu/releases/download/v$V/tofu_${V}_SHA256SUMS
+grep " tofu_${V}_linux_amd64.tar.gz\$" tofu_${V}_SHA256SUMS | sha256sum -c -     # tofu_1.13.9_linux_amd64.tar.gz: OK
+tar -xzf tofu_${V}_linux_amd64.tar.gz tofu
+sudo install -m 0755 tofu /usr/local/bin/tofu && rm -f tofu tofu_${V}_*
+tofu version                        # OpenTofu v1.13.9
+which tofu                          # /usr/local/bin/tofu
+```
+
+macOS: `brew install opentofu` (any version from 1.10 on).
+
+- **A new habit from Lab 10 on: end the day with `tofu destroy`** in `infra/`, not `kind delete cluster`. Once OpenTofu has made your cluster, deleting it any other way leaves OpenTofu's state pointing at a cluster that is gone.
+- The first `tofu init` downloads about 170 MB of providers.
+- Your starting point is your Lab 9 chart in `charts/course-app/`. If it doesn't work, the Lab 10 guide has a fallback chart (from Wed 18 Nov, 20:05).
 
 ## Stuck?
 
